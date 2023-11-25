@@ -42,7 +42,7 @@ a {
   text-decoration: none;
 }
 
-.general-indentation {
+.section-general-indentation {
   padding: 120px 0;
 }
 
@@ -648,12 +648,18 @@ a {
   justify-content: center;
   align-items: center;
   fill: transparent;
-  color: #8e8f99;
   margin-right: 8px;
 }
 
-.checkbox-label-component:hover,
-.checkbox-label-component:focus {
+.checkmark-accept-link {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkmark-accept-link:active {
   background-color: #404bbf;
   border: none;
   fill: #f4f4fd;
