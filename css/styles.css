@@ -651,15 +651,9 @@ a {
   margin-right: 8px;
 }
 
-.checkmark-accept-link {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.checkmark-accept-link:active {
+input[type="checkbox"]:checked
+  + .privacy-checkbox-label
+  > .checkbox-label-component {
   background-color: #404bbf;
   border: none;
   fill: #f4f4fd;
