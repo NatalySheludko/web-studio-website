@@ -1,4 +1,4 @@
-/******************** BODY *********************/
+/******************** MOBILE COMMON STYLES *********************/
 body {
   font-family: "Roboto", sans-serif;
   background-color: white;
@@ -46,16 +46,6 @@ a {
   text-decoration: none;
 }
 
-.section {
-  padding: 120px 0;
-}
-
-.container {
-  max-width: 1158px;
-  margin: 0 auto;
-  padding: 0 15px;
-}
-
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -69,7 +59,36 @@ a {
   overflow: hidden;
 }
 
-/****************** HEADER *******************/
+.section {
+  padding: 96px 0;
+}
+
+.container {
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/******************** TABLET COMMON STYLES *********************/
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+/******************** DESKTOP COMMON STYLES *********************/
+@media screen and (min-width: 1158px) {
+  .section {
+    padding: 120px 0;
+  }
+
+  .container {
+    max-width: 1158px;
+    padding: 0 15px;
+  }
+}
+
+/****************** MOBILE HEADER STYLES *******************/
 .page-header {
   border-bottom: 1px solid #e7e9fc;
   box-shadow: 0px 1px 6px 0px rgba(46, 47, 66, 0.08),
@@ -77,19 +96,13 @@ a {
     0px 2px 1px 0px rgba(46, 47, 66, 0.08);
 }
 
-.container-nav {
-  display: flex;
-  align-items: center;
-}
-
 .main-nav {
   display: flex;
-  margin-right: auto;
   align-items: center;
+  position: relative;
 }
 
 .logo {
-  margin-right: 76px;
   font-family: "Raleway", sans-serif;
   text-transform: uppercase;
   font-weight: 700;
@@ -97,70 +110,255 @@ a {
   line-height: 1.17;
   letter-spacing: 0.03em;
   color: #4d5ae5;
+  padding: 17.5px 0px;
 }
 
 .logo .text-web-logo {
   color: #2e2f42;
 }
 
-.navigation,
-.card-address {
-  display: flex;
-  column-gap: 40px;
-}
-
-.navigation-link {
-  display: block;
-  padding: 24px 0;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: #2e2f42;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.navigation-link:hover,
-.navigation-link:focus {
-  color: #404bbf;
-}
-
-.active {
-  position: relative;
-  color: #404bbf;
-}
-
-.active::after {
+.burger-menu {
   position: absolute;
-  width: 100%;
-  height: 4px;
-  left: 0;
-  bottom: -1px;
-  border-radius: 2px;
-  background-color: #404bbf;
-  content: "";
+  top: 16px;
+  right: 0px;
+  stroke: #2f2f37;
 }
 
-.address-link {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  font-style: normal;
-  color: #434455;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+.navigation,
+.address {
+  display: none;
 }
 
-.address-link:hover,
-.address-link:focus {
-  color: #404bbf;
+@media screen and (max-width: 767px) {
+  .burger-navbar {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #fff;
+    transform: translateX(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .burger-navbar.is-open {
+    transform: translateX(0%);
+  }
+
+  .burger-navbar-modal-window {
+    position: absolute;
+    width: 288px;
+    min-height: 640px;
+    padding-top: 72px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    background-color: #fff;
+  }
+
+  .burger-navbar-btn-close {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    top: 24px;
+    right: 8px;
+    border-radius: 50%;
+    background-color: #fdfdff;
+    border: 1px solid #eaeaec;
+    stroke: #2e2f42;
+  }
+
+  .burger-modal-nav {
+    margin-bottom: 168px;
+  }
+
+  .burger-nav-menu {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+  }
+
+  .nav-link {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.11;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    color: #2e2f42;
+  }
+
+  .active-nav-link {
+    color: #404bbf;
+  }
+
+  .nav-address-menu {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .nav-address-link {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    font-style: normal;
+    color: #434455;
+  }
+
+  .nav-address-link.active {
+    color: #4d5ae5;
+  }
+
+  .social-media-burger-navbar {
+    display: inline-flex;
+    width: 280px;
+    column-gap: 40px;
+  }
+
+  .navbar-item-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #4d5ae5;
+    border-radius: 50%;
+    fill: #f4f4fd;
+  }
 }
 
-/********************** FIRST SECTION *****************/
+/****************** TABLET HEADER STYLES *******************/
+@media screen and (min-width: 768px) {
+  .container-nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    padding: 0;
+    margin-right: 120px;
+  }
+
+  .burger-menu {
+    display: none;
+  }
+
+  .navigation {
+    display: flex;
+    column-gap: 40px;
+    margin-right: 121px;
+  }
+
+  .navigation-link {
+    display: block;
+    padding: 24px 0;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #2e2f42;
+  }
+
+  .active {
+    position: relative;
+    color: #404bbf;
+  }
+
+  .active::after {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    left: 0;
+    bottom: -1px;
+    border-radius: 2px;
+    background-color: #404bbf;
+    content: "";
+  }
+
+  .address {
+    display: block;
+  }
+
+  .address-link {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: 0.04em;
+    font-style: normal;
+    color: #434455;
+  }
+
+  .address-item:first-child {
+    margin-bottom: 12px;
+  }
+}
+
+/****************** DESKTOP HEADER STYLES *******************/
+@media screen and (min-width: 1158px) {
+  .container-nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .main-nav {
+    margin-right: auto;
+  }
+
+  .logo {
+    margin-right: 76px;
+  }
+
+  .burger-menu {
+    display: none;
+  }
+
+  .navigation {
+    margin-right: 0;
+  }
+
+  .card-address {
+    display: flex;
+    column-gap: 40px;
+  }
+
+  .navigation-link {
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .navigation-link:hover,
+  .navigation-link:focus {
+    color: #404bbf;
+  }
+
+  .address-link {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .address-link:hover,
+  .address-link:focus {
+    color: #404bbf;
+  }
+
+  .address-item:first-child {
+    margin-bottom: 0;
+  }
+}
+
+/********************** MOBILE FIRST SECTION STYLES *****************/
 .first-section {
-  max-width: 1440px;
+  max-width: 320px;
   margin: 0 auto;
-  padding: 188px 0;
+  padding: 72px 0;
   background-position: center;
   background-repeat: no-repeat;
   text-align: center;
@@ -168,19 +366,33 @@ a {
       rgba(46, 47, 66, 0.7),
       rgba(46, 47, 66, 0.7)
     ),
-    url(../images/people-office.jpg);
+    url(../images/retina-bg/people-office-mobile.jpg);
   background-size: cover;
   background-color: #2e2f42;
 }
 
+@media screen and (min-resolution: 192dpi) and (max-width: 767px),
+  screen and (min-resolution: 2dppx) and (max-width: 767px),
+  screen and (min-device-pixel-ratio: 2) and (max-width: 767px) {
+  .first-section {
+    background-image: linear-gradient(
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+      ),
+      url(../images/retina-bg/people-office-mobile@2x.jpg);
+  }
+}
+
 .main-header {
-  max-width: 496px;
+  max-width: 169px;
   margin-right: auto;
   margin-left: auto;
-  font-size: 56px;
+  margin-bottom: 72px;
+  font-size: 36px;
   font-weight: 700;
-  line-height: 1.07;
+  line-height: 1.11;
   letter-spacing: 0.02em;
+  text-transform: capitalize;
   color: white;
 }
 
@@ -189,22 +401,89 @@ a {
   min-width: 169px;
   height: 56px;
   margin: 0 auto;
-  margin-top: 48px;
+  padding: 0px;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.04em;
   border-radius: 4px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
-.order-button:hover,
-.order-button:focus {
-  background-color: #404bbf;
+/********************** TABLET FIRST SECTION STYLES *****************/
+@media screen and (min-width: 768px) {
+  .first-section {
+    max-width: 768px;
+    padding: 112px 0;
+    background-image: linear-gradient(
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+      ),
+      url(../images/retina-bg/people-office-tablet.jpg);
+  }
+
+  @media screen and (min-resolution: 192dpi) and (min-width: 768px),
+    screen and (min-resolution: 2dppx) and (min-width: 768px),
+    screen and (min-device-pixel-ratio: 2) and (min-width: 768px) {
+    .first-section {
+      background-image: linear-gradient(
+          rgba(46, 47, 66, 0.7),
+          rgba(46, 47, 66, 0.7)
+        ),
+        url(../images/retina-bg/people-office-tablet@2x.jpg);
+    }
+  }
+
+  .main-header {
+    max-width: 496px;
+    margin-bottom: 36px;
+    font-size: 56px;
+    line-height: 1.07;
+  }
 }
 
-/***************** SECOND SECTION *****************/
+/********************** DESKTOP FIRST SECTION STYLES *****************/
+
+@media screen and (min-width: 1158px) {
+  .first-section {
+    max-width: 1440px;
+    padding: 188px 0;
+    background-image: linear-gradient(
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+      ),
+      url(../images/retina-bg/people-office-desktop.jpg);
+  }
+
+  @media screen and (min-resolution: 192dpi) and (min-width: 1158px),
+    screen and (min-resolution: 2dppx) and (min-width: 1158px),
+    screen and (min-device-pixel-ratio: 2) and (min-width: 1158px) {
+    .first-section {
+      background-image: linear-gradient(
+          rgba(46, 47, 66, 0.7),
+          rgba(46, 47, 66, 0.7)
+        ),
+        url(../images/retina-bg/people-office-desktop@2x.jpg);
+    }
+  }
+
+  .main-header {
+    margin-bottom: 48px;
+  }
+
+  .order-button {
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .order-button:hover,
+  .order-button:focus {
+    background-color: #404bbf;
+  }
+}
+
+/***************** MOBILE SECOND SECTION STYLES *****************/
 .main-header-second-section {
+  /*visually-hidden*/
   margin-bottom: 72px;
   text-align: center;
   font-size: 36px;
@@ -217,40 +496,87 @@ a {
 
 .menu-second-section {
   display: flex;
-  column-gap: 24px;
-}
-
-.item-second-section {
-  width: calc((100% - 3 * 24px) / 4);
+  flex-direction: column;
+  row-gap: 72px;
 }
 
 .box-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 112px;
-  padding: 24px 100px;
-  margin-bottom: 8px;
-  border-radius: 4px;
-  border: 1px solid #8e8f99;
-  background-color: #f4f4fd;
+  display: none;
 }
 
 .title-second-section {
   margin-bottom: 8px;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: 0.01em;
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.11;
+  letter-spacing: 0.02em;
   color: #2e2f42;
 }
 
 .second-section-paragraph {
   font-size: 16px;
+  font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.02em;
+  color: #434455;
 }
-/********************** THIRD SECTION ********************/
+
+/***************** TABLET SECOND SECTION STYLES *****************/
+@media screen and (min-width: 768px) {
+  .menu-second-section {
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 24px;
+    row-gap: 72px;
+  }
+
+  .item-second-section {
+    width: calc((100% - 24px) / 2);
+  }
+
+  .title-second-section {
+    text-align: start;
+  }
+}
+
+/***************** DESKTOP SECOND SECTION STYLES *****************/
+@media screen and (min-width: 1158px) {
+  .menu-second-section {
+    flex-direction: none;
+    flex-wrap: none;
+    row-gap: none;
+  }
+
+  .item-second-section {
+    width: calc((100% - 3 * 24px) / 4);
+  }
+
+  .box-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 112px;
+    padding: 24px 100px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    border: 1px solid #8e8f99;
+    background-color: #f4f4fd;
+  }
+
+  .title-second-section {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+  }
+
+  .second-section-paragraph {
+    font-weight: 400;
+  }
+}
+
+/********************** MOBILE THIRD SECTION STYLES ********************/
 .third-section {
   background-color: #f4f4fd;
 }
@@ -268,11 +594,12 @@ a {
 
 .menu-third-section {
   display: flex;
-  column-gap: 24px;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 72px;
 }
 
 .third-section-item {
-  width: calc((100% - 3 * 24px) / 4);
   border-radius: 0px 0px 4px 4px;
   background-color: #ffffff;
   box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
@@ -302,8 +629,10 @@ a {
 
 .third-section-paragraph {
   font-size: 16px;
+  font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0.02em;
+  color: #434455;
 }
 
 .social-media-menu {
@@ -326,12 +655,6 @@ a {
   height: 100%;
   background-color: #4d5ae5;
   border-radius: 50%;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.media-link:hover,
-.media-link:focus {
-  background-color: #404bbf;
 }
 
 .media-icon {
@@ -341,7 +664,41 @@ a {
   fill: #f4f4fd;
 }
 
-/********************* FOURTH SECTION ********************/
+/********************** TABLET THIRD SECTION STYLES ********************/
+@media screen and (min-width: 768px) {
+  .menu-third-section {
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 24px;
+    row-gap: 64px;
+  }
+}
+
+/********************** DESKTOP THIRD SECTION STYLES ********************/
+@media screen and (min-width: 1158px) {
+  .menu-third-section {
+    justify-content: none;
+    flex-direction: none;
+    flex-wrap: none;
+    row-gap: none;
+  }
+
+  .third-section-item {
+    width: calc((100% - 3 * 24px) / 4);
+  }
+
+  .media-link {
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .media-link:hover,
+  .media-link:focus {
+    background-color: #404bbf;
+  }
+}
+
+/********************* MOBILE FOURTH SECTION STYLES ********************/
 .main-header-fourth-section {
   margin-bottom: 72px;
   text-align: center;
@@ -355,52 +712,25 @@ a {
 
 .menu-fourth-section {
   display: flex;
-  flex-wrap: wrap;
-  column-gap: 24px;
+  flex-direction: column;
   row-gap: 48px;
 }
 
 .fourth-section-item {
-  width: calc((100% - 48px) / 3);
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
 
-.fourth-section-item:hover,
-.fourth-section-item:focus {
-  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
-    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
-    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
-}
-
-.box-item {
-  position: relative;
-  overflow: hidden;
+.project-img {
+  background-color: lightgrey;
 }
 
 .overlay-paragraph {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  padding: 40px 32px;
-  top: 0;
-  left: 0;
-  transform: translateY(100%);
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  color: #f4f4fd;
-  background-color: #4d5ae5;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.fourth-section-item:hover .overlay-paragraph {
-  transform: translateY(0);
+  display: none;
 }
 
 .project-data {
   padding: 32px 16px;
-  border: 1px solid #e7e9fc;
+  border: 1px solid #f4f4fd;
   border-top: none;
 }
 
@@ -415,30 +745,90 @@ a {
 
 .fourth-section-paragraph {
   font-size: 16px;
+  font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0.02em;
+  color: #434455;
 }
 
-/********************** FOOTER ********************/
+/********************* TABLET FOURTH SECTION STYLES ********************/
+@media screen and (min-width: 768px) {
+  .menu-fourth-section {
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 24px;
+    row-gap: 72px;
+  }
+}
+
+/********************* DESKTOP FOURTH SECTION STYLES ********************/
+
+@media screen and (min-width: 1158px) {
+  .menu-fourth-section {
+    flex-direction: none;
+    row-gap: 48px;
+  }
+
+  .fourth-section-item {
+    width: calc((100% - 48px) / 3);
+    cursor: pointer;
+    box-shadow: none;
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .fourth-section-item:hover,
+  .fourth-section-item:focus {
+    box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+      0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+      0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+  }
+
+  .box-item {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .overlay-paragraph {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 40px 32px;
+    top: 0;
+    left: 0;
+    transform: translateY(100%);
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #f4f4fd;
+    background-color: #4d5ae5;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .fourth-section-item:hover .overlay-paragraph {
+    transform: translateY(0);
+  }
+}
+
+/********************** MOBILE FOOTER STYLES ********************/
 .page-footer {
-  padding: 100px 0;
+  padding: 96px 0;
   background-color: #2e2f42;
 }
 
 .footer-container {
   display: flex;
-  align-items: baseline;
-}
-
-.logo-box {
-  margin-right: 120px;
+  flex-direction: column;
+  row-gap: 72px;
 }
 
 .footer-link {
-  display: inline-block;
+  display: block;
   margin-bottom: 16px;
   font-family: "Raleway", sans-serif;
   text-decoration: none;
+  text-align: center;
   font-weight: 700;
   font-size: 18px;
   line-height: 1.17;
@@ -452,16 +842,22 @@ a {
 }
 
 .footer-paragraph {
-  max-width: 264px;
+  width: 288px;
   font-size: 16px;
+  font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #f4f4fd;
 }
 
+.media-box {
+  margin: 0 auto;
+}
+
 .page-footer-paragraph {
   margin-bottom: 16px;
   font-size: 16px;
+  text-align: center;
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.02em;
@@ -471,7 +867,6 @@ a {
 .social-media-menu-footer {
   display: flex;
   column-gap: 16px;
-  margin-right: 80px;
 }
 
 .footer-media-link {
@@ -482,50 +877,42 @@ a {
   height: 40px;
   background-color: #4d5ae5;
   border-radius: 50%;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.footer-media-link:hover,
-.footer-media-link:focus {
-  background-color: #31d0aa;
-}
-
-.form {
-  display: flex;
-  gap: 24px;
 }
 
 .email-address {
-  width: 264px;
+  width: 100%;
   height: 40px;
+  margin-bottom: 16px;
   padding-left: 16px;
   font-size: 12px;
-  line-height: 1.5;
+  line-height: 2;
   letter-spacing: 0.04em;
   font-weight: 400;
   border: 1px solid #fff;
   background-color: transparent;
   border-radius: 4px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  opacity: 0.3;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
   color: #fff;
 }
 
 .email-address::placeholder {
   color: #fff;
+  opacity: 0.6;
 }
 
 .footer-btn {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
   min-width: 165px;
   height: 40px;
-  border-radius: 4px;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.04em;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 4px;
 }
 
 .footer-icon {
@@ -533,7 +920,94 @@ a {
   fill: #fff;
 }
 
-/********************* BACKDROP ***********************/
+/********************** TABLET FOOTER STYLES ********************/
+@media screen and (min-width: 768px) {
+  .footer-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 24px;
+    padding-left: 108px;
+    padding-right: 164px;
+  }
+
+  .footer-link {
+    text-align: start;
+  }
+
+  .footer-paragraph {
+    width: 264px;
+  }
+
+  .media-box {
+    margin: 0;
+  }
+
+  .page-footer-paragraph {
+    text-align: start;
+  }
+
+  .form {
+    display: flex;
+    gap: 24px;
+  }
+
+  .email-address {
+    width: 264px;
+  }
+
+  .footer-btn {
+    margin: 0;
+  }
+}
+
+/********************** DESKTOP FOOTER STYLES ********************/
+
+@media screen and (min-width: 1158px) {
+  .page-footer {
+    padding: 100px 0;
+  }
+
+  .footer-container {
+    flex-direction: none;
+    flex-wrap: nowrap;
+    column-gap: none;
+    padding: 0;
+    align-items: baseline;
+  }
+
+  .logo-box {
+    margin-right: 120px;
+  }
+
+  .footer-link {
+    display: inline-block;
+  }
+
+  .social-media-menu-footer {
+    margin-right: 80px;
+  }
+
+  .footer-media-link {
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .footer-media-link:hover,
+  .footer-media-link:focus {
+    background-color: #31d0aa;
+  }
+
+  .email-address {
+    line-height: 1.5;
+    opacity: none;
+  }
+
+  .footer-btn {
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/********************* MOBILE BACKDROP STYLES ***********************/
 .backdrop {
   position: fixed;
   width: 100%;
@@ -541,10 +1015,10 @@ a {
   top: 0;
   left: 0;
   z-index: 999;
-  background-color: rgba(46, 47, 66, 0.4);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  background-color: rgba(46, 47, 66, 0.4);
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -557,15 +1031,16 @@ a {
 
 .modal-window {
   position: absolute;
-  width: 408px;
-  min-height: 584px;
-  padding: 72px 24px 24px 24px;
+  width: 288px;
+  min-height: 623px;
+  padding: 72px 16px 16px 16px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-  background: #fcfcfc;
+  filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.14))
+    drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.2))
+    drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.12));
+  background-color: #fcfcfc;
   border-radius: 4px;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -584,19 +1059,6 @@ a {
   background-color: #e7e9fc;
   border: 1px solid rgba(0, 0, 0, 0.1);
   fill: #2e2f42;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.modal-close-btn:hover,
-.modal-close-btn:focus {
-  background-color: #404bbf;
-  border: none;
-  fill: #fff;
-}
-
-.modal-close-btn-icon {
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-box-paragraph {
@@ -630,16 +1092,11 @@ a {
 .fields-input {
   width: 100%;
   height: 40px;
-  padding-left: 38px;
+  padding-left: 34px;
   background-color: transparent;
   outline: transparent;
   border-radius: 4px;
   border: 1px solid rgba(46, 47, 66, 0.4);
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.fields-input:focus {
-  border-color: #4d5ae5;
 }
 
 .fields-input-icons {
@@ -648,11 +1105,6 @@ a {
   top: 50%;
   transform: translateY(-50%);
   fill: #2e2f42;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.fields-input:focus + .fields-input-icons {
-  fill: #4d5ae5;
 }
 
 .field-comment {
@@ -673,11 +1125,6 @@ a {
   border-radius: 4px;
   background-color: transparent;
   outline: transparent;
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.field-input-comment:focus {
-  border-color: #4d5ae5;
 }
 
 .privacy-checkbox {
@@ -685,6 +1132,7 @@ a {
 }
 
 .privacy-checkbox-label {
+  width: 231px;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.17;
@@ -703,13 +1151,6 @@ a {
   fill: transparent;
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 2px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.origin-checkbox:focus + .privacy-checkbox-label > .checkbox-label-component {
-  outline: 1px solid #404bbf;
 }
 
 input[type="checkbox"]:checked
@@ -725,11 +1166,6 @@ input[type="checkbox"]:checked
   color: #4d5ae5;
 }
 
-.checkbox-active-link:focus,
-.modal-box-btn:focus {
-  outline: 1px solid #404bbf;
-}
-
 .modal-box-btn {
   display: block;
   min-width: 169px;
@@ -740,5 +1176,89 @@ input[type="checkbox"]:checked
   line-height: 1.5;
   letter-spacing: 0.04em;
   border-radius: 4px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+/********************* TABLET BACKDROP STYLES ***********************/
+@media screen and (min-width: 768px) {
+  .modal-window {
+    width: 408px;
+    min-height: 584px;
+    padding: 72px 25px 24px 23px;
+  }
+
+  .privacy-checkbox-label {
+    width: 338px;
+  }
+
+  .burger-navbar {
+    display: none;
+  }
+}
+
+/********************* DESKTOP BACKDROP STYLES ***********************/
+
+@media screen and (min-width: 1158px) {
+  .modal-window {
+    padding: 72px 24px 24px 24px;
+  }
+
+  .modal-close-btn {
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .modal-close-btn:hover,
+  .modal-close-btn:focus {
+    background-color: #404bbf;
+    border: none;
+    fill: #fff;
+  }
+
+  .modal-close-btn-icon {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .fields-input {
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .fields-input:focus {
+    border-color: #4d5ae5;
+  }
+
+  .fields-input-icons {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .fields-input:focus + .fields-input-icons {
+    fill: #4d5ae5;
+  }
+
+  .field-input-comment {
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .field-input-comment:focus {
+    border-color: #4d5ae5;
+  }
+
+  .checkbox-label-component {
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .origin-checkbox:focus + .privacy-checkbox-label > .checkbox-label-component {
+    outline: 1px solid #404bbf;
+  }
+
+  .checkbox-active-link:focus,
+  .modal-box-btn:focus {
+    outline: 1px solid #404bbf;
+  }
+
+  .modal-box-btn {
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
 }
