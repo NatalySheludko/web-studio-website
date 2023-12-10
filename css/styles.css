@@ -131,7 +131,10 @@ a {
 
 @media screen and (max-width: 767px) {
   .burger-navbar {
+    display: flex;
+    flex-direction: column;
     position: fixed;
+    padding: 72px 24px 40px 16px;
     width: 100%;
     height: 100%;
     top: 0;
@@ -146,17 +149,6 @@ a {
     transform: translateX(0%);
   }
 
-  .burger-navbar-modal-window {
-    position: absolute;
-    width: 288px;
-    min-height: 640px;
-    padding-top: 72px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
-    background-color: #fff;
-  }
-
   .burger-navbar-btn-close {
     position: absolute;
     display: flex;
@@ -166,7 +158,7 @@ a {
     height: 24px;
     padding: 0;
     top: 24px;
-    right: 8px;
+    right: 24px;
     border-radius: 50%;
     background-color: #fdfdff;
     border: 1px solid #eaeaec;
@@ -174,13 +166,11 @@ a {
   }
 
   .burger-modal-nav {
-    margin-bottom: 168px;
+    margin-bottom: auto;
   }
 
-  .burger-nav-menu {
-    display: flex;
-    flex-direction: column;
-    row-gap: 40px;
+  .nav-item:not(:last-child) {
+    margin-bottom: 40px;
   }
 
   .nav-link {
@@ -196,11 +186,12 @@ a {
     color: #404bbf;
   }
 
-  .nav-address-menu {
-    display: flex;
-    flex-direction: column;
-    row-gap: 24px;
+  .nav-address {
     margin-bottom: 48px;
+  }
+
+  .nav-address-item:not(:last-child) {
+    margin-bottom: 24px;
   }
 
   .nav-address-link {
@@ -218,7 +209,6 @@ a {
 
   .social-media-burger-navbar {
     display: inline-flex;
-    width: 280px;
     column-gap: 40px;
   }
 
@@ -320,7 +310,7 @@ a {
   }
 
   .navigation {
-    margin-right: 0;
+    margin-right: unset;
   }
 
   .card-address {
@@ -543,9 +533,9 @@ a {
 /***************** DESKTOP SECOND SECTION STYLES *****************/
 @media screen and (min-width: 1158px) {
   .menu-second-section {
-    flex-direction: none;
-    flex-wrap: none;
-    row-gap: none;
+    flex-direction: unset;
+    flex-wrap: unset;
+    row-gap: unset;
   }
 
   .item-second-section {
@@ -673,15 +663,20 @@ a {
     column-gap: 24px;
     row-gap: 64px;
   }
+
+  .personal-data {
+    max-width: unset;
+    margin: unset;
+  }
 }
 
 /********************** DESKTOP THIRD SECTION STYLES ********************/
 @media screen and (min-width: 1158px) {
   .menu-third-section {
-    justify-content: none;
-    flex-direction: none;
-    flex-wrap: none;
-    row-gap: none;
+    justify-content: unset;
+    flex-direction: unset;
+    flex-wrap: unset;
+    row-gap: unset;
   }
 
   .third-section-item {
@@ -765,7 +760,7 @@ a {
 
 @media screen and (min-width: 1158px) {
   .menu-fourth-section {
-    flex-direction: none;
+    flex-direction: unset;
     row-gap: 48px;
   }
 
@@ -923,12 +918,10 @@ a {
 /********************** TABLET FOOTER STYLES ********************/
 @media screen and (min-width: 768px) {
   .footer-container {
-    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     column-gap: 24px;
-    padding-left: 108px;
-    padding-right: 164px;
+    width: 584px;
   }
 
   .footer-link {
@@ -949,7 +942,7 @@ a {
 
   .form {
     display: flex;
-    gap: 24px;
+    column-gap: 24px;
   }
 
   .email-address {
@@ -969,11 +962,12 @@ a {
   }
 
   .footer-container {
-    flex-direction: none;
-    flex-wrap: nowrap;
-    column-gap: none;
-    padding: 0;
+    flex-direction: unset;
+    flex-wrap: unset;
+    row-gap: unset;
+    column-gap: unset;
     align-items: baseline;
+    width: auto;
   }
 
   .logo-box {
@@ -999,7 +993,7 @@ a {
 
   .email-address {
     line-height: 1.5;
-    opacity: none;
+    opacity: unset;
   }
 
   .footer-btn {
@@ -1132,7 +1126,9 @@ a {
 }
 
 .privacy-checkbox-label {
-  width: 231px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 1;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.17;
@@ -1141,9 +1137,10 @@ a {
 }
 
 .checkbox-label-component {
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
   width: 16px;
   height: 16px;
   margin-right: 8px;
