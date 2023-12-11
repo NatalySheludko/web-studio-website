@@ -429,6 +429,7 @@ a {
     margin-bottom: 36px;
     font-size: 56px;
     line-height: 1.07;
+    text-transform: none;
   }
 }
 
