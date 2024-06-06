@@ -130,6 +130,10 @@ a {
 }
 
 @media screen and (max-width: 767px) {
+  .burger-menu {
+    cursor: pointer;
+  }
+
   .burger-navbar {
     display: flex;
     flex-direction: column;
@@ -956,7 +960,6 @@ a {
 }
 
 /********************** DESKTOP FOOTER STYLES ********************/
-
 @media screen and (min-width: 1158px) {
   .page-footer {
     padding: 100px 0;
@@ -1115,11 +1118,15 @@ a {
   line-height: 1.17;
   font-weight: 400;
   letter-spacing: 0.04em;
-  color: rgba(46, 47, 66, 0.4);
+  color: #1b1a1a;
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 4px;
   background-color: transparent;
   outline: transparent;
+}
+
+.field-input-comment::placeholder {
+  color: rgba(46, 47, 66, 0.4);
 }
 
 .privacy-checkbox {
