@@ -190,6 +190,11 @@ a {
     color: #404bbf;
   }
 
+	.nav-link:hover,
+  .nav-link:focus {
+    color: #404bbf;
+  }
+
   .nav-address {
     margin-bottom: 48px;
   }
@@ -207,7 +212,7 @@ a {
     color: #434455;
   }
 
-  .nav-address-link.active {
+  .navigation-link.active {
     color: #4d5ae5;
   }
 
@@ -262,6 +267,11 @@ a {
 
   .active {
     position: relative;
+    color: #404bbf;
+  }
+
+  .navigation-link:hover,
+  .navigation-link:focus {
     color: #404bbf;
   }
 
@@ -324,11 +334,6 @@ a {
 
   .navigation-link {
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .navigation-link:hover,
-  .navigation-link:focus {
-    color: #404bbf;
   }
 
   .address-link {
@@ -1267,3 +1272,4 @@ input[type="checkbox"]:checked
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
+

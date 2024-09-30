@@ -1,3 +1,20 @@
+//=============== NAV LINK ==================//
+const navLinks = document.querySelectorAll(".navigation-link");
+const burgerNavLinks = document.querySelectorAll(".nav-link");
+
+function handleLinkActivation(links) {
+  links.forEach((link) => {
+    link.addEventListener("click", function () {
+      links.forEach((link) => link.classList.remove("active"));
+      this.classList.add("active");
+    });
+  });
+}
+
+handleLinkActivation(navLinks);
+handleLinkActivation(burgerNavLinks);
+
+//=============== BACKDROP ==================//
 const backdrop = document.querySelector(".backdrop");
 const backdropOpenBtn = document.querySelector(".order-button");
 backdropOpenBtn.addEventListener("click", () => {
@@ -70,3 +87,4 @@ function getFormData() {
     orderComment.value = data.txtData;
   }
 }
+
