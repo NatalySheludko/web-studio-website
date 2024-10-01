@@ -8,6 +8,7 @@ I participated in the development of the "WebStudio" website as part of the IT S
 - Identifying and resolving technical issues through research and problem solving.
 
 ## Key Features:
+- Adaptive design for mobile (320px), tablet (768px), desktop (1440px).
 - User-Friendly Interface: Designed for an intuitive and professional experience.
 - Adaptive Design: Ensured a consistent experience across different devices.
 - Interactive UI Elements: Implemented using JavaScript to enhance user engagement.
